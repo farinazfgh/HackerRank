@@ -9,7 +9,7 @@ public class InsertionSort1 {
 
     static void insertionSortfromLeft(int[] array) {
         if (array.length == 0) return;
-        for (int i = 1; i < array.length - 1; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j > 0; j--) {
                 if (array[j - 1] > array[j]) {
                     int temp = array[j - 1];
@@ -94,10 +94,11 @@ public class InsertionSort1 {
     }
 
     public static void main(String[] args) {
-        int[] array = {1, 4, 3, 5, 6, 2};
+        int[] array = {9, 8, 6 ,7 ,3, 5, 4, 1, 2};
         insertionSortfromLeft(array);
         printArray(array);
-        insertionSortfromRight(array);
-        printArray(array);
+        int[] array2 = {9, 8, 6 ,7 ,3, 5, 4, 1, 2};
+        insertionSortfromRight(array2);
+        printArray(array2);
     }
 }
