@@ -10,10 +10,10 @@ public class BigSorting {
     //todo failed for one test case time exceeded
     //https://medium.com/swlh/slow-sorting-and-big-o-notation-aa31631ceacb
     //try fork join later
-    static class MyNumber implements Comparable<MyNumber> {
+    static class NumberString implements Comparable<NumberString> {
         final String numberStr;
 
-        MyNumber(String numberStr) {
+        NumberString(String numberStr) {
             this.numberStr = numberStr;
         }
 
@@ -22,7 +22,7 @@ public class BigSorting {
         }
 
         @Override
-        public int compareTo(MyNumber str) {
+        public int compareTo(NumberString str) {
 
             if (numberStr.length() < str.getNumberStr().length()) return -1;
             if (numberStr.length() > str.getNumberStr().length()) return 1;
@@ -34,10 +34,10 @@ public class BigSorting {
         }
     }
 
-    static String[] bigSorting2(String[] unsorted) {
-        List<MyNumber> list = new ArrayList<>();
+    static String[] bigSorting(String[] unsorted) {
+        List<NumberString> list = new ArrayList<>();
         for (String s : unsorted) {
-            MyNumber number = new MyNumber(s);
+            NumberString number = new NumberString(s);
             list.add(number);
         }
         Collections.sort(list);
@@ -47,7 +47,7 @@ public class BigSorting {
         return unsorted;
     }
 
-    static String[] bigSorting(String[] unsorted) {
+    static String[] bigSorting2(String[] unsorted) {
         return Stream.of(unsorted).sorted((str1, str2) -> {
             if (str1.length() < str2.length()) return -1;
             if (str1.length() > str2.length()) return 1;
